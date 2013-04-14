@@ -91,7 +91,6 @@ function revealElements(){
   <div data-role="page" id="register" data-theme="d">
 
      <div data-role="header" data-position="fixed">
-        <a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-icon="smico" data-corners="false" data-iconpos="notext">Menu</a>
         <h1>Probably</h1>
      </div>
 <!-- Add QR code -->
@@ -132,7 +131,6 @@ function revealElements(){
          <div data-role="page" id="landing" data-theme="d">
 
             <div data-role="header" data-position="fixed">
-               <a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-icon="smico" data-corners="false" data-iconpos="notext">Menu</a>
                <h1>Check List</h1>
             </div>
 
@@ -149,23 +147,16 @@ function revealElements(){
             <div data-role="page" data-add-back-btn="true"  id="entry" data-theme="d">
 
                       <div data-role="header" data-position="fixed">
-                         <a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-icon="smico" data-corners="false" data-iconpos="notext">Menu</a>
-                         <h1>Check-in</h1>
+                         <h1>Check-in: Entry</h1>
                       </div>
 
-
-                    <div data-theme="a" data-role="header">
-                            <h3>
-                                Entry
-                            </h3>
-                        </div>
                   <div data-role="content">
                     <ul data-role="listview" data-inset="true">
                       <li><a href="#" data-transition="slide">Front Door</a></li>
                       <li><a href="#" data-transition="slide">Dome Light</a></li>
                       <li><a href="#" data-transition="slide">Carpet</a></li>
                     </ul>
-                    <a href="#maintenance" id="ItemSubmit">Submit</a>
+                    <a href="#maintenance" data-role="button" id="ItemSubmit">Submit</a>
                   </div>
                     </div>
                    </div>
@@ -272,14 +263,16 @@ function revealElements(){
 </div>
                 <!-- /content -->
 
-                <div data-role="page" id="page1" data-theme="d">
+                <div data-role="page" data-add-back-btn="true" id="page1" data-theme="d">
 
                    <div data-role="header" data-position="fixed">
-                      <h1>423 N Ames St - Bedroom</h1>
+                      <h1>423 N Ames St: Bedroom</h1>
                    </div>
                  <div data-role="content" class="ui-content" role="main">
                       <ul data-role="listview" data-inset="true">
-                            <li><a href="#"><strong>Problem: </strong>Wet Carpet</a></li>
+                            <li data-role="list-divider" role="heading">
+                              <strong>Problem: </strong>Wet Carpet
+                            </li>
                             <li><a href="#photos">Photos</a></li>
                             <li><a href="#room-message">
                                     <h2>John Belushi</h2>
