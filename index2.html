@@ -20,8 +20,13 @@
 <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
 <script src="js/date.format.js"></script>
 <script>
+  //  $(document).on('pageinit',function(){
+  //   $('#entry .ui-collapsible .ui-icon').removeClass('ui-icon-plus').addClass('ui-icon-thumb');
+  //   $('#entry .ui-collapsible .ui-icon').on('toggle', function() {
+  //     $(this).removeClass('ui-icon-minus');
+  //   });
+  // });
 $(document).ready(function(){
-
   $('#ItemSubmit').click(function(event) {
     if($('#textinput1').val() != '')
     {
@@ -36,7 +41,7 @@ $(document).ready(function(){
       var message = $('#textinput1').val();
       var now = new Date();
       $('#textinput1').val('');
-      $('#messages').append('<div class="bubble left white"><a href="#" class="avatar"><img src="img/belushi.jpg"></a>'+message+'<small>Sent '+now.format('mmmm dS at H:M')+'</small></div>');
+      $('#messages').append('<div class="bubble right green"><a href="#" class="avatar"><img src="img/maintenance_man.jpg"></a>'+message+'<small>Sent '+now.format('mmmm dS at H:M')+'</small></div>');
 
       $("html, body").animate({ scrollTop: $(document).height() }, 0);
   }
@@ -48,35 +53,11 @@ $(document).ready(function(){
     revealElements();
 });
 
- function generateEvents(){
-   for(var i = 0; i < 3; i++)
-   {
-     //Generate random number for adding message
-     var number = 1 + Math.floor(Math.random() * 4);
-
-     //Generate wait time
-     var waitTime = 1000 * (1 + Math.floor(Math.random() * 6))
-
-     if(number == 1)
-     {
-       $('#events li').eq(2).delay(waitTime).append('<li><div class="ui-btn-text"><a href="#page1" data-transition="slide" class="ui-link-inherit">  Bacon Crisps    3    Recieved</a></div></li>').show("slow");
-     }
-
-     else if (number ==2)
-     {
-       $('#events li').eq(3).delay(waitTime).append('<li><div class="ui-btn-text"><a href="#page1" data-transition="slide" class="ui-link-inherit">  Cabinets   2    Recieved</a></div></li>').show("slow");
-     }
-     else if (number == 3)
-     {
-       $('#events li').eq(1).delay(waitTime).append('<li><div class="ui-btn-text"><a href="#page1" data-transition="slide" class="ui-link-inherit">  Front Door    2   Recieved</a></div></li>').show("slow");
-     }
-     else
-     {
-        $('#events li').eq(1).delay(waitTime).append('<li><div class="ui-btn-text"><a href="#page1" data-transition="slide" class="ui-link-inherit"> Back Door    3    Recieved</a></div></li>').show("slow");
-     }
-   }
-};
-
+  $(document).on('pagebeforeshow','#dialog-submit', function(){
+  setTimeout(function() {
+    window.location.href='#maintenance';
+  }, 2000);
+  });
 function revealElements(){
 
   $('#show1').parent().delay(7000).show("slow");
@@ -86,24 +67,40 @@ function revealElements(){
   $('#show3').parent().delay(8000).show("slow");
 };
 </script>
+
+  <style type="text/css">
+    #center-button{
+    margin-left: 30%;
+    margin-right: 0%;
+    width: 40%;
+    }
+    #entry .ui-icon-photo {
+      background-image: url('img/icon_combined.png');
+    background-position: 50% 0%;
+      }
+    #entry .ui-icon-comment {
+      background-image: url('img/icon_combined.png');
+    background-position: 100% 0%;
+      }
+    </style>
 </head>
 <body>
   <div data-role="page" id="register" data-theme="d">
 
      <div data-role="header" data-position="fixed">
-        <h1>Probably</h1>
+        <h1>Propertly</h1>
      </div>
 <!-- Add QR code -->
      <div data-role="content" >
         <p>Please enter user credentials below:</p>
         <label for="basic">First Name:</label>
-        <input type="text" name="name" id="basic" data-mini="true" value="Kyle" />
+        <input type="text" name="name" id="basic" data-mini="true" value="Scott" />
 
         <label for="basic">Last Name:</label>
-        <input type="text" name="name" id="basic" data-mini="true" value="Wiebers"/>
+        <input type="text" name="name" id="basic" data-mini="true" value="Herren"/>
 
         <label for="basic">Email:</label>
-        <input type="text" name="name" id="basic" data-mini="true" value="kyle@wiebe.rs"/>
+        <input type="text" name="name" id="basic" data-mini="true" value="scott@propertly.co"/>
 
         <label for="basic">Access Code:</label>
         <input type="text" name="name" id="basic" data-mini="true" value="72938108"/>
@@ -136,8 +133,8 @@ function revealElements(){
 
             <div data-role="content">
                <p>Welcome to Propertly. Please select room.</p>
-                     <a href="#entry" data-role="button">Entry</a>
-                      <a href="#" data-role="button">Kitchen</a>
+                     <a href="#" data-role="button">Entry</a>
+                      <a href="#entry" data-role="button">Kitchen</a>
                       <a href="#" data-role="button">Bathroom</a>
                       <a href="#" data-role="button">Livingroom</a>
                       <a href="#" data-role="button">Bedroom</a>
@@ -147,21 +144,51 @@ function revealElements(){
             <div data-role="page" data-add-back-btn="true"  id="entry" data-theme="d">
 
                       <div data-role="header" data-position="fixed">
-                         <h1>Check-in: Entry</h1>
+                         <h1>Check-in: Kitchen</h1>
                       </div>
-                  <div data-role="content">
-                    <ul data-role="listview" data-inset="true">
-                      <li><a href="#" data-transition="slide">Front Door</a></li>
-                      <li><a href="#" data-transition="slide">Dome Light</a></li>
-                      <li><a href="#" data-transition="slide">Carpet</a></li>
-                    </ul>
-                    <a href="#maintenance" data-role="button" id="ItemSubmit">Submit</a>
+                      <div data-role="content">
+                  <div data-role="collapsible" data-iconpos="right" data-collapsed="true"  data-theme="b" data-content-theme="d">
+                      <h4>Fridge</h4>
+
+                      <a href="#" data-role="button" data-inline="true"  data-icon="comment" data-mini="true">Comment </a>
+                      <a href="#" data-role="button" data-inline="true"  data-icon="photo" data-mini="true"> Take a Photo </a>
+
                   </div>
+                       <div data-role="collapsible" data-iconpos="right" data-collapsed="true" data-theme="b" data-content-theme="d">
+                      <h4>Dishwasher</h4>
+                      <a href="#" data-role="button" data-inline="true"  data-icon="comment" data-mini="true" >Comment</a>
+
+                      <a href="#" data-role="button" data-inline="true" data-icon="photo" data-mini="true" > Take a Photo </a>
+                  </div>
+                   <div data-role="collapsible" data-iconpos="right" data-collapsed="true" data-theme="b" data-content-theme="d">
+                      <h4>Sink</h4>
+
+                      <a href="#" data-role="button" data-inline="true" data-icon="comment" data-mini="true">Comment</a>
+                      <a href="#" data-role="button" data-inline="true" data-icon="photo" data-mini="true"> Take a Photo </a>
+
+                  </div>
+                   <div data-role="collapsible" data-iconpos="right" data-collapsed="true" data-theme="b" data-content-theme="d">
+                      <h4>Cabinets</h4>
+
+                      <a href="#" data-role="button" data-inline="true" data-icon="comment" data-mini="true">Comment</a>
+                      <a href="#" data-role="button" data-inline="true" data-icon="photo" data-mini="true"> Take a Photo </a>
+
+                  </div>
+                   <div data-role="collapsible" data-iconpos="right" data-collapsed="true" data-theme="b" data-content-theme="d">
+                      <h4>Other</h4>
+
+                      <a href="#" data-role="button" data-inline="true" data-icon="comment" data-mini="true">Comment</a>
+                      <a href="#" data-role="button" data-inline="true" data-icon="photo" data-mini="true"> Take a Photo </a>
+
+                  </div>
+                    <a href="#dialog-submit" data-role="button" data-inline="true" data-mini="true" id="center-button">Submit</a>
+                        </div>
+</div>
                     </div>
                    </div>
             </div>
 <!-- Summary/technician view for landlord -->
-            <div data-role="page" id="maintenance" data-theme="d">
+            <div data-role="page" id="maintenance" data-theme="a">
                 <div data-role="header">
                     <h3>
                         Maintenance
@@ -219,7 +246,7 @@ function revealElements(){
                 </div>
             </div>
 </div>
-            <div data-role="page" data-add-back-btn="true"  id="room-message" data-theme="d" >
+            <div data-role="page" data-add-back-btn="true"  id="room-message" data-theme="a" >
               <div data-role="header">
                     <h1 class="ui-title" role="heading" aria-level="1">Conversation View</h1>
                 </div><div data-role="content" class="ui-content" role="main">
@@ -243,14 +270,9 @@ function revealElements(){
                         <small>Sent April 13th at 5:44pm</small>
                     </div>
 
-                    <div class="bubble right green">
-                        <a href="#" class="avatar"><img src="img/maintenance_man.jpg"></a>
-                        I will be over tomorrow between 10:30 and 12:00 to fix it.
-                        <small>Sent April 13th at 5:50pm</small>
-                    </div>
-                  </div>
+
                   <div data-role="fieldcontain">
-                      <input type="file" accept="image/*" capture="camera" />
+                      <a href="#" data-role="button" data-inline="true"  data-icon="photo" data-mini="true">Attach a Photo </a>
                   </div>
                   <div data-role="fieldcontain">
                     <form id="message-form">
@@ -262,7 +284,7 @@ function revealElements(){
 </div>
                 <!-- /content -->
 
-                <div data-role="page" data-add-bck-btn="true" id="page1" data-theme="d">
+                <div data-role="page" data-add-bck-btn="true" id="page1" data-theme="a">
 
                    <div data-role="header" data-position="fixed">
                       <h1>423 N Ames St: Bedroom</h1>
@@ -282,7 +304,7 @@ function revealElements(){
                           </ul>
                  </div>
 
-                 <div style="text-align:center" data-theme="d" data-role="footer" data-position="fixed">
+                 <div style="text-align:center" data-theme="a" data-role="footer" data-position="fixed">
                       <div data-type="horizontal" data-role="controlgroup">
                       <a href="#list2" data-role="button">General Maintenance</a>
                       <a href="#list2" data-role="button">Tenent Negligence</a>
@@ -290,7 +312,7 @@ function revealElements(){
                  </div>
                </div>
 
-                <div data-role="page" data-add-back-btn="true" id="photos" data-theme="d">
+                <div data-role="page" data-add-back-btn="true" id="photos" data-theme="a">
 
                    <div data-role="header" data-position="fixed">
                       <h1>423 N Ames St - Bedroom</h1>
@@ -306,18 +328,26 @@ function revealElements(){
                       </a>
                     <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
                   </li>
+                      <li data-theme="c">
+                        <a href="#" class="ui-link-inherit">
+                          <img src="img/apartment_floor_plan.gif" class="ui-li-thumb">
+                          <h3 class="ui-li-heading">Floorplan</h3>
+                          <p class="ui-li-desc">Attached is the floorplan for this unit.</p>
+                      </a>
+                    <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+                  </li>
                 </ul>
               </div><!--/content-primary -->
             </div>
 
-                 <div data-theme="d" data-role="footer" data-position="fixed">
+                 <div data-theme="a" data-role="footer" data-position="fixed">
                       <div  style="text-align:center"  data-type="horizontal" data-role="controlgroup">
                       <a href="#list2" data-role="button">General Maintenance</a>
                       <a href="#list2" data-role="button">Tenent Negligence</a>
                       </div>
                  </div>
                </div>
-                           <div data-role="page" id="list2" data-theme="d">
+                           <div data-role="page" id="list2" data-theme="a">
                                <div data-role="header">
                                    <h3>
                                        Maintenance
@@ -369,6 +399,18 @@ function revealElements(){
                                    </ul>
                                </div>
                            </div>
+               </div>
+
+               <div data-role="page" id="dialog-submit" data-dom-cache="true" data-theme="d"><!-- dialog-->
+
+                <div data-role="header" data-theme="d">
+                  <h1>Confirmation</h1>
+                </div><!-- /header -->
+
+                <div data-role="content" data-theme="a">
+                  <p style="font-weight:bold">Thanks for your submission.</p>
+                  <p style="font-weight:bold">This page will redirect to main page in 2 seconds. </p>
+                </div>
                </div>
 </body>
 </html>
