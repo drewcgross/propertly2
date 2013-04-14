@@ -1,0 +1,68 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   <meta name="HandheldFriendly" content="True">
+   <meta name="MobileOptimized" content="320">
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta name="apple-mobile-web-app-status-bar-style" content="black">
+   <meta http-equiv="cleartype" content="on">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+   <title>Re-Propertly</title>
+
+   <!--Includes-->
+   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+   <link rel="stylesheet" href="css/bubbles.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+</head>
+<body>
+  <div data-role="page" id="demo-page" data-theme="d" data-url="demo-page" tabindex="0" class="ui-page ui-body-d ui-page-panel ui-page-active" style="min-height: 670px;">
+
+      <div class="ui-panel-content-wrap ui-body-d ui-panel-animate ui-panel-content-wrap-closed"><div data-role="header" data-theme="b" class="ui-header ui-bar-b" role="banner">
+          <h1 class="ui-title" role="heading" aria-level="1">Conversation View</h1>
+      </div><div data-role="content" class="ui-content" role="main">
+
+        <div class="bubble left white">
+            <a href="#" class="avatar"><img src="http://www.gravatar.com/avatar/aec6e953a297fa75121ac9703bf6b0bd"></a>
+            Hey my sink isn't really working that well.  It leaks around the faucet base on the sink.  Can you help me out?
+            <small>Sent April 13th at 5:03pm</small>
+        </div>
+
+        <div class="bubble right green">
+            <a href="#" class="avatar"><img src="http://www.gravatar.com/avatar/aec6e953a297fa75121ac9703bf6b0bd"></a>
+            Can you take a picture of it and send it to me?
+            <small>Sent April 13th at 5:27pm</small>
+        </div>
+
+        <div class="bubble left white">
+            <a href="#" class="avatar"><img src="http://www.gravatar.com/avatar/aec6e953a297fa75121ac9703bf6b0bd"></a>
+            Sure here it is.
+            <small>Sent April 13th at 5:44pm</small>
+        </div>
+
+        <div class="bubble right green">
+            <a href="#" class="avatar"><img src="http://www.gravatar.com/avatar/aec6e953a297fa75121ac9703bf6b0bd"></a>
+            I will be over tomorrow between 10:30 and 12:00 to fix it.
+            <small>Sent April 13th at 5:50pm</small>
+        </div>
+        <div data-role="fieldcontain">
+            <input type="file" accept="image/*" capture="camera" />
+        </div>
+        <div data-role="fieldcontain">
+                    <input name="" id="textinput1" placeholder="Send Message" value="" type="text">
+          </div>
+
+      </div></div><!-- /header -->
+
+      <!-- /content -->
+
+      </div><!-- /panel -->
+
+  <div class="ui-panel-dismiss" data-panelid="left-panel"></div><div class="ui-panel-dismiss" data-panelid="right-panel"></div></div>
+   </div>
+</body>
+</html>
