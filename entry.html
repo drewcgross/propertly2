@@ -6,22 +6,30 @@
    <link rel="stylesheet" href="css/themes/jqmfb.min.css">
    <link rel="stylesheet" href="http://code.jquery.com/mobile/latest/jquery.mobile.structure.min.css">
   <style type="text/css">
-
+	  #center-button{
+		margin-left: 30%;
+		margin-right: 0%;
+		width: 40%;
+	  }
       .ui-icon-thumb {
-		background-image:url('img/icon_thumb.png');
-		background-position: 0,0;
+		background-position: 0.0% 0%;
+      }
+      .ui-icon-photo {
+		background-position: 50% 0%;
+      }
+      .ui-icon-edit {
+		background-position: 100% 0%;
       }
 	  .ui-icon, .ui-icon-searchfield:after {
-		background: #666666;
-		background: transparent;
-		background-image: url('img/icon_thumb.png');
+		
+		background-image: url('img/icon_combined.png');
 		background-repeat: no-repeat;
 		-moz-border-radius: 9px;
 		-webkit-border-radius: 9px;
 		border-radius: 9px;
 		}
     </style>
-	<base href="http://www.tegdesign.com/tegansnyder-JQuery-Mobile-Slide-Menu/">
+	<!--<base href="http://www.tegdesign.com/tegansnyder-JQuery-Mobile-Slide-Menu/">-->
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
    <meta name="HandheldFriendly" content="True">
@@ -51,6 +59,11 @@
    $(document).on('pageinit',function(){
     $('.ui-collapsible .ui-icon').removeClass('ui-icon-plus').addClass('ui-icon-thumb');     
 });
+	$(document).on('pagebeforeshow','#dialog-submit', function(){
+	setTimeout(function() {
+		window.location.href='#main_page';
+	}, 3000);
+	});
 </script>
 </head>
 <body>
@@ -58,7 +71,7 @@
    <div id="slidemenu">
 
       <div id="profile">
-         <img src="img/tegan.jpg">
+         <img src="img/maintenance_man.jpg">
          <div class="profile_info"><strong>Tegan Snyder</strong><br><small>Web &amp; Mobile Developer</small></div>
       </div>
 
@@ -105,37 +118,47 @@
  <div data-role="collapsible" data-iconpos="right" data-collapsed="true"  data-icon="check" >
     <h4>Front Door</h4>
 
-		<a href="#" data-role="button" data-inline="true"  data-mini="true">Comment </a>
-		<a href="#" data-role="button" data-inline="true" data-mini="true"> Photo </a>
+		<a href="#" data-role="button" data-inline="true"  data-icon="edit" data-mini="true">Comment </a>
+		<a href="#" data-role="button" data-inline="true"  data-icon="photo" data-mini="true"> Take a Photo </a>
 
 </div>
 		 <div data-role="collapsible" data-iconpos="right" data-collapsed="true" data-theme="b" data-content-theme="d">
     <h4>Dome Light</h4>
-		<a href="#" data-role="button" data-inline="true" data-mini="true" >Comment</a>
+		<a href="#" data-role="button" data-inline="true"  data-icon="edit" data-mini="true" >Comment</a>
 
-		<a href="#" data-role="button" data-inline="true" data-mini="true" > Photo </a>
+		<a href="#" data-role="button" data-inline="true" data-icon="photo" data-mini="true" > Take a Photo </a>
 </div>
  <div data-role="collapsible" data-iconpos="right" data-collapsed="true" data-theme="b" data-content-theme="d">
     <h4>Carpet</h4>
 
-		<a href="#" data-role="button" data-inline="true" data-mini="true">Comment</a>
-		<a href="#" data-role="button" data-inline="true" data-mini="true"> Photo </a>
+		<a href="#" data-role="button" data-inline="true" data-icon="edit" data-mini="true">Comment</a>
+		<a href="#" data-role="button" data-inline="true" data-icon="photo" data-mini="true"> Take a Photo </a>
  
 </div>
  <div data-role="collapsible" data-iconpos="right" data-collapsed="true" data-theme="b" data-content-theme="d">
     <h4>Other</h4>
    
-		<a href="#" data-role="button" data-inline="true" data-mini="true">Comment</a>
-		<a href="#" data-role="button" data-inline="true" data-mini="true"> Photo </a>
+		<a href="#" data-role="button" data-inline="true" data-icon="edit" data-mini="true">Comment</a>
+		<a href="#" data-role="button" data-inline="true" data-icon="photo" data-mini="true"> Take a Photo </a>
 
 </div>
-
+	<a href="#dialog-submit" data-role="button" data-inline="true" data-mini="true" id="center-button">Submit</a>
       </div>
 
-
+  
    
-   
+	<div data-role="page" id="dialog-submit" data-dom-cache="true"><!-- dialog-->
 
+		<div data-role="header" data-theme="b">
+			<h1>Confirmation</h1>
+		</div><!-- /header -->
+
+		<div data-role="content" data-theme="a">
+			<p style="font-weight:bold">Thanks for your submission.</p>
+			<p style="font-weight:bold">This page will redirect to main page in 3 seconds. </p>
+		</div>
+	</div>
+	
    <div data-role="page" id="another_page" data-theme="a">
 
       <div data-role="header" data-position="fixed">
