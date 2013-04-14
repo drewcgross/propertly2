@@ -1,6 +1,6 @@
 .bubble {
-    width:220px;
-    min-height:36px;
+    width:auto;
+    min-height:60px;
     -moz-border-radius:15px;
     -webkit-border-radius:15px;
     padding:8px 15px;
@@ -20,16 +20,16 @@
     width:13px;
 }
 .left {
-    margin:0 0 12px 58px;
+    margin:0 0 12px 90px;
 }
 .left:after {
     left:-8px;
-    bottom:20px;   
+    bottom:20px;
     -moz-transform:rotate(45deg);
     -webkit-transform:rotate(45deg);
 }
 .right {
-    margin:0 58px 12px 0;
+    margin:0 90px 12px 0;
 }
 .right:after {
     right:-8px;
@@ -57,19 +57,19 @@
 }
 .avatar {
     position:absolute;
-    width:32px;
-    height:32px;
+    width:60px;
+    height:60px;
     bottom:12px;
 }
 .left .avatar {
-    left:-50px;
+    left:-75px;
 }
 .right .avatar {
-    right:-50px;
+    right:-75px;
 }
 .avatar img {
-    width:32px;
-    height:32px;
+    width:60px;
+    height:60px;
     border:none;
 }
 .bubble small {
@@ -77,7 +77,7 @@
     margin:5px 0 0 0;
     font-style:italic;
     color:rgba(0,0,0,.3);
-    
+
 }
 .white,
 .white:after {
