@@ -1,0 +1,329 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   <meta name="HandheldFriendly" content="True">
+   <meta name="MobileOptimized" content="320">
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta name="apple-mobile-web-app-status-bar-style" content="black">
+   <meta http-equiv="cleartype" content="on">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+   <title>Re-Propertly</title>
+
+   <!--Includes-->
+   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+   <link rel="stylesheet" href="css/bubbles.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+<script src="js/date.format.js"></script>
+<script>
+$(document).ready(function(){
+
+  $('#ItemSubmit').click(function(event) {
+    if($('#textinput1').val() != '')
+    {
+      generateEvents();
+    }
+  });
+
+  $('form#message-form').submit(function(event) {
+    event.preventDefault();
+    if($('#textinput1').val() != '')
+    {
+      var message = $('#textinput1').val();
+      var now = new Date();
+      $('#textinput1').val('');
+      $('#messages').append('<div class="bubble left white"><a href="#" class="avatar"><img src="img/belushi.jpg"></a>'+message+'<small>Sent '+now.format('mmmm dS at H:M')+'</small></div>');
+
+      $("html, body").animate({ scrollTop: $(document).height() }, 0);
+  }
+    return false;
+  });
+    $('#show1').parent().hide();
+    $('#show2').parent().hide();
+    $('#show3').parent().hide();
+    revealElements();
+});
+
+ function generateEvents(){
+   for(var i = 0; i < 3; i++)
+   {
+     //Generate random number for adding message
+     var number = 1 + Math.floor(Math.random() * 4);
+
+     //Generate wait time
+     var waitTime = 1000 * (1 + Math.floor(Math.random() * 6))
+
+     if(number == 1)
+     {
+       $('#events li').eq(2).delay(waitTime).append('<li><div class="ui-btn-text"><a href="#page1" data-transition="slide" class="ui-link-inherit">  Bacon Crisps    3    Recieved</a></div></li>').show("slow");
+     }
+
+     else if (number ==2)
+     {
+       $('#events li').eq(3).delay(waitTime).append('<li><div class="ui-btn-text"><a href="#page1" data-transition="slide" class="ui-link-inherit">  Cabinets   2    Recieved</a></div></li>').show("slow");
+     }
+     else if (number == 3)
+     {
+       $('#events li').eq(1).delay(waitTime).append('<li><div class="ui-btn-text"><a href="#page1" data-transition="slide" class="ui-link-inherit">  Front Door    2   Recieved</a></div></li>').show("slow");
+     }
+     else
+     {
+        $('#events li').eq(1).delay(waitTime).append('<li><div class="ui-btn-text"><a href="#page1" data-transition="slide" class="ui-link-inherit"> Back Door    3    Recieved</a></div></li>').show("slow");
+     }
+   }
+};
+
+function revealElements(){
+
+  $('#show1').parent().delay(7000).show("slow");
+
+  $('#show2').parent().delay(12000).show("slow");
+
+  $('#show3').parent().delay(8000).show("slow");
+};
+</script>
+</head>
+<body>
+  <div data-role="page" id="register" data-theme="d">
+
+     <div data-role="header" data-position="fixed">
+        <a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-icon="smico" data-corners="false" data-iconpos="notext">Menu</a>
+        <h1>Probably</h1>
+     </div>
+<!-- Add QR code -->
+     <div data-role="content" >
+        <p>Please enter user credentials below:</p>
+        <label for="basic">First Name:</label>
+        <input type="text" name="name" id="basic" data-mini="true" placeholder="First Name" />
+
+        <label for="basic">Last Name:</label>
+        <input type="text" name="name" id="basic" data-mini="true" placeholder="Last Name" />
+
+        <label for="basic">Email:</label>
+        <input type="text" name="name" id="basic" data-mini="true" placeholder="Email" />
+
+        <label for="basic">Access Code:</label>
+        <input type="text" name="name" id="basic" data-mini="true" placeholder="Access Code" />
+
+        <center>Do you agree to follow all <a href="">Terms of Service</a>?</center>
+
+        <fieldset data-role="controlgroup">
+           <legend>Agree to the terms:</legend>
+           <input type="checkbox" name="checkbox-agree" id="checkbox-agree" class="custom" />
+           <label for="checkbox-agree">I agree</label>
+        </fieldset>
+
+        <a href="#landing" data-role="button"  data-transition="slide" data-mini="true">Continue</a>
+
+     </div>
+
+  </div>
+
+      </div></div><!-- /header -->
+
+      <!-- /content -->
+
+      </div><!-- /panel -->
+
+         <div data-role="page" id="landing" data-theme="d">
+
+            <div data-role="header" data-position="fixed">
+               <a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-icon="smico" data-corners="false" data-iconpos="notext">Menu</a>
+               <h1>Check List</h1>
+            </div>
+
+            <div data-role="content">
+               <p>Welcome to Propertly. Please select room.</p>
+                     <a href="#entry" data-role="button">Entry</a>
+                      <a href="#" data-role="button">Kitchen</a>
+                      <a href="#" data-role="button">Bathroom</a>
+                      <a href="#" data-role="button">Livingroom</a>
+                      <a href="#" data-role="button">Bedroom</a>
+
+            </div>
+</div>
+            <div data-role="page" data-add-back-btn="true"  id="entry" data-theme="d">
+
+                      <div data-role="header" data-position="fixed">
+                         <a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-icon="smico" data-corners="false" data-iconpos="notext">Menu</a>
+                         <h1>Check-in</h1>
+                      </div>
+
+
+                    <div data-theme="a" data-role="header">
+                            <h3>
+                                Entry
+                            </h3>
+                        </div>
+                  <div data-role="content">
+                    <ul data-role="listview" data-inset="true">
+                      <li><a href="#" data-transition="slide">Front Door</a></li>
+                      <li><a href="#" data-transition="slide">Dome Light</a></li>
+                      <li><a href="#" data-transition="slide">Carpet</a></li>
+                    </ul>
+                    <a href="#maintenance" id="ItemSubmit">Submit</a>
+                  </div>
+                    </div>
+                   </div>
+            </div>
+<!-- Summary/technician view for landlord -->
+            <div data-role="page" id="maintenance" data-theme="d">
+                <div data-role="header">
+                    <h3>
+                        Maintenance
+                    </h3>
+                </div>
+                <div data-role="content" id="events">
+                    <ul data-role="listview" data-inset="true">
+                        <li data-role="list-divider" role="heading">
+                            Open Tickets
+                        </li>
+                        <li>
+                            <a href="#page1" data-transition="slide">
+                                Bedroom Carpet    3    Recieved
+                            </a>
+                        </li>
+                        <li class="hidden">
+                            <a href="#page2" data-transition="slide" class="hidden" id="show1">
+                                Fish Crisps    2    Recieved
+                            </a>
+                        </li>
+                        <li class="hidden">
+                            <a href="#page3" data-transition="slide" class="hidden" id="show2">
+                                Cracked Window    3   Recieved
+                            </a>
+                        </li>
+                        <li class="hidden">
+                            <a href="#page4" data-transition="slide" class="hidden" id="show3">
+                                Flooding Bathroom    1    Recieved
+                            </a>
+                        </li>
+                        <li class="hidden">
+                            <a href="#page5" data-transition="slide">
+                                Bedroom Carpet    3    Recieved
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page6" data-transition="slide">
+                                Living Room Blinds    3    Recieved
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page7" data-transition="slide">
+                                Leaky Faucet    2    Scheduled
+                            </a>
+                        </li>
+                        <li data-role="list-divider" role="heading">
+                            Closed Tickets
+                        </li>
+                        <li>
+                            <a href="#sink-message" data-transition="slide">
+                                No items available.
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+</div>
+            <div data-role="page" data-add-back-btn="true"  id="room-message" data-theme="d" >
+              <div data-role="header">
+                    <h1 class="ui-title" role="heading" aria-level="1">Conversation View</h1>
+                </div><div data-role="content" class="ui-content" role="main">
+
+                  <div id="messages">
+                    <div class="bubble left white">
+                        <a href="#" class="avatar"><img src="img/belushi.jpg"></a>
+                        Hey I can't sleep in my bedroom because of the moldy carpet.  Can you come fix this?
+                        <small>Sent April 13th at 5:03pm</small>
+                    </div>
+
+                    <div class="bubble right green">
+                        <a href="#" class="avatar"><img src="img/maintenance_man.jpg"></a>
+                        Can you take a picture of it and send it to me?
+                        <small>Sent April 13th at 5:27pm</small>
+                    </div>
+
+                    <div class="bubble left white">
+                        <a href="#" class="avatar"><img src="img/belushi.jpg"></a>
+                        Sure thing.
+                        <small>Sent April 13th at 5:44pm</small>
+                    </div>
+
+                    <div class="bubble right green">
+                        <a href="#" class="avatar"><img src="img/maintenance_man.jpg"></a>
+                        I will be over tomorrow between 10:30 and 12:00 to fix it.
+                        <small>Sent April 13th at 5:50pm</small>
+                    </div>
+                  </div>
+                  <div data-role="fieldcontain">
+                      <input type="file" accept="image/*" capture="camera" />
+                  </div>
+                  <div data-role="fieldcontain">
+                    <form id="message-form">
+                              <input name="" id="textinput1" placeholder="Send Message" value="" type="text">
+                      </form>
+                    </div>
+
+                </div></div><!-- /header -->
+</div>
+                <!-- /content -->
+
+                <div data-role="page" id="page1" data-theme="d">
+
+                   <div data-role="header" data-position="fixed">
+                      <h1>423 N Ames St - Bedroom</h1>
+                   </div>
+                 <div data-role="content" class="ui-content" role="main">
+                      <ul data-role="listview" data-inset="true">
+                            <li><a href="#"><strong>Problem: </strong>Wet Carpet</a></li>
+                            <li><a href="#photos">Photos</a></li>
+                            <li><a href="#room-message">
+                                    <h2>John Belushi</h2>
+                                    <p><strong>Message from John</strong></p>
+                                    <p>Hey I can't sleep in my bedroom because of the moldy carpet.  Can you come fix this? </p>
+                            </a></li>
+
+                          </ul>
+                 </div>
+
+                 <div style="text-align:center" data-theme="d" data-role="footer" data-position="fixed">
+                      <div data-type="horizontal" data-role="controlgroup">
+                      <a href="index.html" data-role="button">General Maintenance</a>
+                      <a href="index.html" data-role="button">Tenent Negligence</a>
+                      <a href="index.html" data-role="button">Close</a>
+                      </div>
+                 </div>
+               </div>
+
+                <div data-role="page" data-add-back-btn="true" id="photos" data-theme="d">
+
+                   <div data-role="header" data-position="fixed">
+                      <h1>423 N Ames St - Bedroom</h1>
+                   </div>
+                 <div data-role="content" class="ui-content" role="main">
+                    <div class="content-primary">
+                    <ul data-role="listview" class="ui-listview">
+                      <li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li" aria-hidden="true"><div class="ui-btn-text"><a href="index.html" class="ui-link-inherit">
+                        <img src="img/wet_carpet.jpg" class="ui-li-thumb">
+                        <h3 class="ui-li-heading">Photo 1</h3>
+                        <p class="ui-li-desc">Photo 1</p>
+                      </a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>
+                    </ul>
+                    </div><!--/content-primary -->
+                  </div>
+
+                 <div data-theme="d" data-role="footer" data-position="fixed">
+                      <div data-type="horizontal" data-role="controlgroup">
+                      <a href="index.html" data-role="button">General Maintenance</a>
+                      <a href="index.html" data-role="button">Tenent Negligence</a>
+                      <a href="index.html" data-role="button">Close</a>
+                      </div>
+                 </div>
+               </div>
+
+</body>
+</html>
