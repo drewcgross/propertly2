@@ -21,6 +21,15 @@
 <script src="js/date.format.js"></script>
 <script>
 $(document).ready(function(){
+  $('#submitCheckin').click(function(){
+    $("<div class='ui-loader ui-overlay-shadow ui-body-e ui-corner-all'><h3>Success: Thank you for submitting your review.</h3></div>").css({ "display": "block", "opacity": 0.90, "top": $(window).scrollTop() + 100, "left": $(window).width()/3 })
+    .appendTo( $.mobile.pageContainer )
+    .delay( 1500 )
+    .fadeOut( 400, function(){
+    $(this).remove();
+  });
+  });
+
   $('form#message-form').submit(function(event) {
     event.preventDefault();
     if($('#textinput1').val() != '')
@@ -115,7 +124,7 @@ $(document).ready(function(){
                       <li><a href="#" data-transition="slide">Dome Light</a></li>
                       <li><a href="#" data-transition="slide">Carpet</a></li>
                     </ul>
-                    <a href="#maintenance">Submit</a>
+                    <a href="#maintenance" id="submitCheckin">Submit</a>
                   </div>
                     </div>
                    </div>
