@@ -22,12 +22,12 @@
 <script>
 $(document).ready(function(){
   $('#submitCheckin').click(function(){
-    $("<div class='ui-loader ui-overlay-shadow ui-body-e ui-corner-all'><h3>Success: Thank you for submitting your review.</h3></div>").css({ "display": "block", "opacity": 0.90, "top": $(window).scrollTop() + 100, "left": $(window).width()/3 })
+    $("<div class='ui-loader ui-overlay-shadow ui-body-e ui-corner-all'><h5>Success: Thank you for submitting your review.</h5></div>").css({ "display": "block", "opacity": 0.90, "top": $(window).scrollTop() + 100, "left": 0 })
     .appendTo( $.mobile.pageContainer )
     .delay( 1500 )
     .fadeOut( 400, function(){
-    $(this).remove();
-  });
+      $(this).remove();
+    });
   });
 
   $('form#message-form').submit(function(event) {

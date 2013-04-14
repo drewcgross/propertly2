@@ -11,7 +11,7 @@
    <meta http-equiv="cleartype" content="on">
    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 
-   <title>Re-Propertly</title>
+   <title>Propertly</title>
 
    <!--Includes-->
    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
@@ -91,23 +91,22 @@ function revealElements(){
   <div data-role="page" id="register" data-theme="d">
 
      <div data-role="header" data-position="fixed">
-        <a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-icon="smico" data-corners="false" data-iconpos="notext">Menu</a>
         <h1>Probably</h1>
      </div>
 <!-- Add QR code -->
      <div data-role="content" >
         <p>Please enter user credentials below:</p>
         <label for="basic">First Name:</label>
-        <input type="text" name="name" id="basic" data-mini="true" placeholder="First Name" />
+        <input type="text" name="name" id="basic" data-mini="true" value="Kyle" />
 
         <label for="basic">Last Name:</label>
-        <input type="text" name="name" id="basic" data-mini="true" placeholder="Last Name" />
+        <input type="text" name="name" id="basic" data-mini="true" value="Wiebers"/>
 
         <label for="basic">Email:</label>
-        <input type="text" name="name" id="basic" data-mini="true" placeholder="Email" />
+        <input type="text" name="name" id="basic" data-mini="true" value="kyle@wiebe.rs"/>
 
         <label for="basic">Access Code:</label>
-        <input type="text" name="name" id="basic" data-mini="true" placeholder="Access Code" />
+        <input type="text" name="name" id="basic" data-mini="true" value="72938108"/>
 
         <center>Do you agree to follow all <a href="">Terms of Service</a>?</center>
 
@@ -132,7 +131,6 @@ function revealElements(){
          <div data-role="page" id="landing" data-theme="d">
 
             <div data-role="header" data-position="fixed">
-               <a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-icon="smico" data-corners="false" data-iconpos="notext">Menu</a>
                <h1>Check List</h1>
             </div>
 
@@ -149,23 +147,15 @@ function revealElements(){
             <div data-role="page" data-add-back-btn="true"  id="entry" data-theme="d">
 
                       <div data-role="header" data-position="fixed">
-                         <a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-icon="smico" data-corners="false" data-iconpos="notext">Menu</a>
-                         <h1>Check-in</h1>
+                         <h1>Check-in: Entry</h1>
                       </div>
-
-
-                    <div data-theme="a" data-role="header">
-                            <h3>
-                                Entry
-                            </h3>
-                        </div>
                   <div data-role="content">
                     <ul data-role="listview" data-inset="true">
                       <li><a href="#" data-transition="slide">Front Door</a></li>
                       <li><a href="#" data-transition="slide">Dome Light</a></li>
                       <li><a href="#" data-transition="slide">Carpet</a></li>
                     </ul>
-                    <a href="#maintenance" id="ItemSubmit">Submit</a>
+                    <a href="#maintenance" data-role="button" id="ItemSubmit">Submit</a>
                   </div>
                     </div>
                    </div>
@@ -182,39 +172,39 @@ function revealElements(){
                         <li data-role="list-divider" role="heading">
                             Open Tickets
                         </li>
-                        <li>
-                            <a href="#page1" data-transition="slide">
-                                Bedroom Carpet    3    Recieved
-                            </a>
-                        </li>
                         <li class="hidden">
-                            <a href="#page2" data-transition="slide" class="hidden" id="show1">
-                                Fish Crisps    2    Recieved
-                            </a>
-                        </li>
-                        <li class="hidden">
-                            <a href="#page3" data-transition="slide" class="hidden" id="show2">
-                                Cracked Window    3   Recieved
-                            </a>
-                        </li>
-                        <li class="hidden">
-                            <a href="#page4" data-transition="slide" class="hidden" id="show3">
-                                Flooding Bathroom    1    Recieved
-                            </a>
-                        </li>
-                        <li class="hidden">
-                            <a href="#page5" data-transition="slide">
-                                Bedroom Carpet    3    Recieved
+                            <a href="#page1" data-transition="slide" class="hidden" id="show1">
+                                Wet Carpet
                             </a>
                         </li>
                         <li>
                             <a href="#page6" data-transition="slide">
-                                Living Room Blinds    3    Recieved
+                                Bed Bugs
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page2" data-transition="slide" class="">
+                                Leaky Dishwasher
+                            </a>
+                        </li>
+                        <li class="hidden">
+                            <a href="#page3" data-transition="slide" class="hidden" id="show2">
+                                  Leaky Sink
+                            </a>
+                        </li>
+                        <li class="hidden">
+                            <a href="#page4" data-transition="slide" class="hidden" id="show3">
+                                Broken Window
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page5" data-transition="slide">
+                                Stove Burner Broken
                             </a>
                         </li>
                         <li>
                             <a href="#page7" data-transition="slide">
-                                Leaky Faucet    2    Scheduled
+                                Hole in the Wall
                             </a>
                         </li>
                         <li data-role="list-divider" role="heading">
@@ -272,14 +262,14 @@ function revealElements(){
 </div>
                 <!-- /content -->
 
-                <div data-role="page" id="page1" data-theme="d">
+                <div data-role="page" data-add-bck-btn="true" id="page1" data-theme="d">
 
                    <div data-role="header" data-position="fixed">
-                      <h1>423 N Ames St - Bedroom</h1>
+                      <h1>423 N Ames St: Bedroom</h1>
                    </div>
                  <div data-role="content" class="ui-content" role="main">
                       <ul data-role="listview" data-inset="true">
-                            <li><a href="#"><strong>Problem: </strong>Wet Carpet</a></li>
+                            <li data-role="list-divider" role="heading">Problem: Wet Carpet</li>
                             <li><a href="#photos">Photos</a></li>
                             <li><a href="#room-message">
                                     <h2>John Belushi</h2>
@@ -292,9 +282,8 @@ function revealElements(){
 
                  <div style="text-align:center" data-theme="d" data-role="footer" data-position="fixed">
                       <div data-type="horizontal" data-role="controlgroup">
-                      <a href="index.html" data-role="button">General Maintenance</a>
-                      <a href="index.html" data-role="button">Tenent Negligence</a>
-                      <a href="index.html" data-role="button">Close</a>
+                      <a href="#list2" data-role="button">General Maintenance</a>
+                      <a href="#list2" data-role="button">Tenent Negligence</a>
                       </div>
                  </div>
                </div>
@@ -307,23 +296,77 @@ function revealElements(){
                  <div data-role="content" class="ui-content" role="main">
                     <div class="content-primary">
                     <ul data-role="listview" class="ui-listview">
-                      <li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li" aria-hidden="true"><div class="ui-btn-text"><a href="index.html" class="ui-link-inherit">
-                        <img src="img/wet_carpet.jpg" class="ui-li-thumb">
-                        <h3 class="ui-li-heading">Photo 1</h3>
-                        <p class="ui-li-desc">Photo 1</p>
-                      </a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>
-                    </ul>
-                    </div><!--/content-primary -->
-                  </div>
+                      <li data-theme="c">
+                        <a href="#" class="ui-link-inherit">
+                          <img src="img/wet_carpet.jpg" class="ui-li-thumb">
+                          <h3 class="ui-li-heading">Photo 1</h3>
+                          <p class="ui-li-desc">Here's my picture</p>
+                      </a>
+                    <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+                  </li>
+                </ul>
+              </div><!--/content-primary -->
+            </div>
 
                  <div data-theme="d" data-role="footer" data-position="fixed">
-                      <div data-type="horizontal" data-role="controlgroup">
-                      <a href="index.html" data-role="button">General Maintenance</a>
-                      <a href="index.html" data-role="button">Tenent Negligence</a>
-                      <a href="index.html" data-role="button">Close</a>
+                      <div  style="text-align:center"  data-type="horizontal" data-role="controlgroup">
+                      <a href="#list2" data-role="button">General Maintenance</a>
+                      <a href="#list2" data-role="button">Tenent Negligence</a>
                       </div>
                  </div>
                </div>
-
+                           <div data-role="page" id="list2" data-theme="d">
+                               <div data-role="header">
+                                   <h3>
+                                       Maintenance
+                                   </h3>
+                               </div>
+                               <div data-role="content" id="events">
+                                   <ul data-role="listview" data-inset="true">
+                                       <li data-role="list-divider" role="heading">
+                                           Open Tickets
+                                       </li>
+                                       <li>
+                                           <a href="#page6" data-transition="slide">
+                                               Bed Bugs
+                                           </a>
+                                       </li>
+                                       <li>
+                                           <a href="#page2" data-transition="slide" class="">
+                                               Leaky Dishwasher
+                                           </a>
+                                       </li>
+                                       <li>
+                                           <a href="#page3" data-transition="slide" id="show2">
+                                                 Leaky Sink
+                                           </a>
+                                       </li>
+                                       <li>
+                                           <a href="#page4" data-transition="slide" id="show3">
+                                               Broken Window
+                                           </a>
+                                       </li>
+                                       <li>
+                                           <a href="#page5" data-transition="slide">
+                                               Stove Burner Broken
+                                           </a>
+                                       </li>
+                                       <li>
+                                           <a href="#page7" data-transition="slide">
+                                               Hole in the Wall
+                                           </a>
+                                       </li>
+                                       <li data-role="list-divider" role="heading">
+                                           Closed Tickets
+                                       </li>
+                                       <li>
+                                          <a href="#page1" data-transition="slide" id="show1">
+                                              Wet Carpet
+                                          </a>
+                                      </li>
+                                   </ul>
+                               </div>
+                           </div>
+               </div>
 </body>
 </html>
