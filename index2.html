@@ -21,13 +21,12 @@
 <script src="js/date.format.js"></script>
 <script>
 $(document).ready(function(){
-  $('#submitCheckin').click(function(){
-    $("<div class='ui-loader ui-overlay-shadow ui-body-e ui-corner-all'><h3>Success: Thank you for submitting your review.</h3></div>").css({ "display": "block", "opacity": 0.90, "top": $(window).scrollTop() + 100, "left": $(window).width()/3 })
-    .appendTo( $.mobile.pageContainer )
-    .delay( 1500 )
-    .fadeOut( 400, function(){
-    $(this).remove();
-  });
+
+  $('#ItemSubmit').click(function(event) {
+    if($('#textinput1').val() != '')
+    {
+      generateEvents();
+    }
   });
 
   $('form#message-form').submit(function(event) {
@@ -43,14 +42,55 @@ $(document).ready(function(){
   }
     return false;
   });
+    $('#show1').parent().hide();
+    $('#show2').parent().hide();
+    $('#show3').parent().hide();
+    revealElements();
 });
+
+ function generateEvents(){
+   for(var i = 0; i < 3; i++)
+   {
+     //Generate random number for adding message
+     var number = 1 + Math.floor(Math.random() * 4);
+
+     //Generate wait time
+     var waitTime = 1000 * (1 + Math.floor(Math.random() * 6))
+
+     if(number == 1)
+     {
+       $('#events li').eq(2).delay(waitTime).append('<li><div class="ui-btn-text"><a href="#page1" data-transition="slide" class="ui-link-inherit">  Bacon Crisps    3    Recieved</a></div></li>').show("slow");
+     }
+
+     else if (number ==2)
+     {
+       $('#events li').eq(3).delay(waitTime).append('<li><div class="ui-btn-text"><a href="#page1" data-transition="slide" class="ui-link-inherit">  Cabinets   2    Recieved</a></div></li>').show("slow");
+     }
+     else if (number == 3)
+     {
+       $('#events li').eq(1).delay(waitTime).append('<li><div class="ui-btn-text"><a href="#page1" data-transition="slide" class="ui-link-inherit">  Front Door    2   Recieved</a></div></li>').show("slow");
+     }
+     else
+     {
+        $('#events li').eq(1).delay(waitTime).append('<li><div class="ui-btn-text"><a href="#page1" data-transition="slide" class="ui-link-inherit"> Back Door    3    Recieved</a></div></li>').show("slow");
+     }
+   }
+};
+
+function revealElements(){
+
+  $('#show1').parent().delay(7000).show("slow");
+
+  $('#show2').parent().delay(12000).show("slow");
+
+  $('#show3').parent().delay(8000).show("slow");
+};
 </script>
 </head>
 <body>
   <div data-role="page" id="register" data-theme="d">
 
      <div data-role="header" data-position="fixed">
-        <a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-icon="smico" data-corners="false" data-iconpos="notext">Menu</a>
         <h1>Probably</h1>
      </div>
 <!-- Add QR code -->
@@ -91,7 +131,6 @@ $(document).ready(function(){
          <div data-role="page" id="landing" data-theme="d">
 
             <div data-role="header" data-position="fixed">
-               <a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-icon="smico" data-corners="false" data-iconpos="notext">Menu</a>
                <h1>Check List</h1>
             </div>
 
@@ -105,26 +144,19 @@ $(document).ready(function(){
 
             </div>
 </div>
-            <div data-role="page" id="entry" data-theme="d">
+            <div data-role="page" data-add-back-btn="true"  id="entry" data-theme="d">
 
                       <div data-role="header" data-position="fixed">
-                         <a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-icon="smico" data-corners="false" data-iconpos="notext">Menu</a>
-                         <h1>Check-in</h1>
+                         <h1>Check-in: Entry</h1>
                       </div>
 
-
-                    <div data-theme="a" data-role="header">
-                            <h3>
-                                Entry
-                            </h3>
-                        </div>
                   <div data-role="content">
                     <ul data-role="listview" data-inset="true">
                       <li><a href="#" data-transition="slide">Front Door</a></li>
                       <li><a href="#" data-transition="slide">Dome Light</a></li>
                       <li><a href="#" data-transition="slide">Carpet</a></li>
                     </ul>
-                    <a href="#maintenance" id="submitCheckin">Submit</a>
+                    <a href="#maintenance" data-role="button" id="ItemSubmit">Submit</a>
                   </div>
                     </div>
                    </div>
@@ -136,22 +168,44 @@ $(document).ready(function(){
                         Maintenance
                     </h3>
                 </div>
-                <div data-role="content">
-                    <a data-role="button" data-transition="slide" href="new_request.html">
-                        New Request
-                    </a>
+                <div data-role="content" id="events">
                     <ul data-role="listview" data-inset="true">
                         <li data-role="list-divider" role="heading">
                             Open Tickets
                         </li>
                         <li>
                             <a href="#page1" data-transition="slide">
-                                Bedroom Carpet - Recieved
+                                Bedroom Carpet    3    Recieved
+                            </a>
+                        </li>
+                        <li class="hidden">
+                            <a href="#page2" data-transition="slide" class="hidden" id="show1">
+                                Fish Crisps    2    Recieved
+                            </a>
+                        </li>
+                        <li class="hidden">
+                            <a href="#page3" data-transition="slide" class="hidden" id="show2">
+                                Cracked Window    3   Recieved
+                            </a>
+                        </li>
+                        <li class="hidden">
+                            <a href="#page4" data-transition="slide" class="hidden" id="show3">
+                                Flooding Bathroom    1    Recieved
+                            </a>
+                        </li>
+                        <li class="hidden">
+                            <a href="#page5" data-transition="slide">
+                                Bedroom Carpet    3    Recieved
                             </a>
                         </li>
                         <li>
-                            <a href="#page1" data-transition="slide">
-                                Toilet - Scheduled
+                            <a href="#page6" data-transition="slide">
+                                Living Room Blinds    3    Recieved
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page7" data-transition="slide">
+                                Leaky Faucet    2    Scheduled
                             </a>
                         </li>
                         <li data-role="list-divider" role="heading">
@@ -159,23 +213,22 @@ $(document).ready(function(){
                         </li>
                         <li>
                             <a href="#sink-message" data-transition="slide">
-                                Kitchen Sink - Fixed
+                                No items available.
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
 </div>
-            <div data-role="page" id="sink-message" data-theme="d" >
-
-                <div class="ui-panel-content-wrap ui-body-d ui-panel-animate ui-panel-content-wrap-closed"><div data-role="header" data-theme="b" class="ui-header ui-bar-b" role="banner">
+            <div data-role="page" data-add-back-btn="true"  id="room-message" data-theme="d" >
+              <div data-role="header">
                     <h1 class="ui-title" role="heading" aria-level="1">Conversation View</h1>
                 </div><div data-role="content" class="ui-content" role="main">
 
                   <div id="messages">
                     <div class="bubble left white">
                         <a href="#" class="avatar"><img src="img/belushi.jpg"></a>
-                        Hey my sink isn't really working that well.  It leaks around the faucet base on the sink.  Can you help me out?
+                        Hey I can't sleep in my bedroom because of the moldy carpet.  Can you come fix this?
                         <small>Sent April 13th at 5:03pm</small>
                     </div>
 
@@ -187,7 +240,7 @@ $(document).ready(function(){
 
                     <div class="bubble left white">
                         <a href="#" class="avatar"><img src="img/belushi.jpg"></a>
-                        Sure here it is.
+                        Sure thing.
                         <small>Sent April 13th at 5:44pm</small>
                     </div>
 
@@ -207,10 +260,63 @@ $(document).ready(function(){
                     </div>
 
                 </div></div><!-- /header -->
-
+</div>
                 <!-- /content -->
 
-  <div class="ui-panel-dismiss" data-panelid="left-panel"></div><div class="ui-panel-dismiss" data-panelid="right-panel"></div></div>
-   </div>
+                <div data-role="page" data-add-back-btn="true" id="page1" data-theme="d">
+
+                   <div data-role="header" data-position="fixed">
+                      <h1>423 N Ames St: Bedroom</h1>
+                   </div>
+                 <div data-role="content" class="ui-content" role="main">
+                      <ul data-role="listview" data-inset="true">
+                            <li data-role="list-divider" role="heading">
+                              <strong>Problem: </strong>Wet Carpet
+                            </li>
+                            <li><a href="#photos">Photos</a></li>
+                            <li><a href="#room-message">
+                                    <h2>John Belushi</h2>
+                                    <p><strong>Message from John</strong></p>
+                                    <p>Hey I can't sleep in my bedroom because of the moldy carpet.  Can you come fix this? </p>
+                            </a></li>
+
+                          </ul>
+                 </div>
+
+                 <div style="text-align:center" data-theme="d" data-role="footer" data-position="fixed">
+                      <div data-type="horizontal" data-role="controlgroup">
+                      <a href="index.html" data-role="button">General Maintenance</a>
+                      <a href="index.html" data-role="button">Tenent Negligence</a>
+                      <a href="index.html" data-role="button">Close</a>
+                      </div>
+                 </div>
+               </div>
+
+                <div data-role="page" data-add-back-btn="true" id="photos" data-theme="d">
+
+                   <div data-role="header" data-position="fixed">
+                      <h1>423 N Ames St - Bedroom</h1>
+                   </div>
+                 <div data-role="content" class="ui-content" role="main">
+                    <div class="content-primary">
+                    <ul data-role="listview" class="ui-listview">
+                      <li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li" aria-hidden="true"><div class="ui-btn-text"><a href="index.html" class="ui-link-inherit">
+                        <img src="img/wet_carpet.jpg" class="ui-li-thumb">
+                        <h3 class="ui-li-heading">Photo 1</h3>
+                        <p class="ui-li-desc">Photo 1</p>
+                      </a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>
+                    </ul>
+                    </div><!--/content-primary -->
+                  </div>
+
+                 <div data-theme="d" data-role="footer" data-position="fixed">
+                      <div data-type="horizontal" data-role="controlgroup">
+                      <a href="index.html" data-role="button">General Maintenance</a>
+                      <a href="index.html" data-role="button">Tenent Negligence</a>
+                      <a href="index.html" data-role="button">Close</a>
+                      </div>
+                 </div>
+               </div>
+
 </body>
 </html>
